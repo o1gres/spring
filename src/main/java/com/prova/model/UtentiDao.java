@@ -53,6 +53,7 @@ public class UtentiDao implements UtentiDaoInterface<Utenti, String>
 	private static SessionFactory getSessionFactory() 
 	{
 		Configuration configuration = new Configuration().configure();
+		configuration.addAnnotatedClass(com.prova.model.Utenti.class);
 		StandardServiceRegistryBuilder builder = new StandardServiceRegistryBuilder().applySettings(configuration.getProperties());
 		SessionFactory sessionFactory = configuration.buildSessionFactory(builder.build());
 		return sessionFactory;
@@ -82,6 +83,9 @@ public class UtentiDao implements UtentiDaoInterface<Utenti, String>
 		this.currentTransaction = currentTransaction;
 	}
 
+	
+	
+	
 	
 	@Override
 	public void persist(Utenti entity) 
@@ -117,7 +121,7 @@ public class UtentiDao implements UtentiDaoInterface<Utenti, String>
 	public List<Utenti> findAll() 
 	{
 		List<Utenti> utenti = new ArrayList<Utenti>(); 
-		utenti = (List<Utenti>) getCurrentSession().createQuery("from utentui").list();
+		utenti = (List<Utenti>) getCurrentSession().createQuery("from Utenti", Utenti.class).getResultList();
 		return utenti;
 	}
 

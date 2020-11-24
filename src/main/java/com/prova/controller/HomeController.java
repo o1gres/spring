@@ -39,11 +39,11 @@ public class HomeController {
 		UtentiService utentiService = new UtentiService();
 		
 		//Sesso if maschio set true
-		Utenti utente1 = new Utenti(1, "Mario", 25, true);
-		Utenti utente2 = new Utenti(2, "Rossa", 18, false);
-		
-		utentiService.persist(utente1);
-		utentiService.persist(utente2);
+//		Utenti utente1 = new Utenti(1, "Mario", 25, 1);
+//		Utenti utente2 = new Utenti(2, "Rossa", 18, 1);
+//		
+//		utentiService.persist(utente1);
+//		utentiService.persist(utente2);
 
 		
 		Date date = new Date();
@@ -57,8 +57,6 @@ public class HomeController {
 		List<Utenti> utentiList = utentiService.findAll();
 		model.addAttribute("utentiList", "utentiList");
 
-		
-		
 		return "home";
 	}
 	

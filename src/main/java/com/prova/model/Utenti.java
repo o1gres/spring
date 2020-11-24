@@ -8,7 +8,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "utenti")
+@Table(name = "UTENTI")
 public class Utenti {
 	
 	@Id
@@ -22,11 +22,11 @@ public class Utenti {
 	public int eta;
 	
 	@Column
-	public boolean sesso;
+	public int sesso;
 	
 	public Utenti() {}
 
-	public Utenti(int id, String name, int eta, boolean sesso) {
+	public Utenti(int id, String name, int eta, int sesso) {
 		super();
 		this.id = id;
 		this.name = name;
@@ -34,6 +34,9 @@ public class Utenti {
 		this.sesso = sesso;
 	}
 
+	@Column(name = "ID")
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	@Id
 	public int getId() {
 		return id;
 	}
@@ -41,7 +44,8 @@ public class Utenti {
 	public void setId(int id) {
 		this.id = id;
 	}
-
+	
+    @Column(name = "NAME")
 	public String getName() {
 		return name;
 	}
@@ -49,7 +53,7 @@ public class Utenti {
 	public void setName(String name) {
 		this.name = name;
 	}
-
+	 @Column(name = "ETA")
 	public int getEta() {
 		return eta;
 	}
@@ -57,14 +61,12 @@ public class Utenti {
 	public void setEta(int eta) {
 		this.eta = eta;
 	}
-
-	public boolean isSesso() {
+	@Column(name = "SESSO")
+	public int getSesso() {
 		return sesso;
 	}
 
-	public void setSesso(boolean sesso) {
+	public void setSesso(int sesso) {
 		this.sesso = sesso;
 	}
-	
-	
 }
